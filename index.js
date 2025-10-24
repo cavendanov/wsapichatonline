@@ -1,5 +1,13 @@
 const express = require("express");
 const app = express();
+
+app.get("/", (req, res) => res.send("Hello word"));
+
+app.listen(3000);
+console.log("Server on port 3000");
+
+/*const express = require("express");
+const app = express();
 app.use(express.json());
 
 // Set port and verify_token
@@ -29,3 +37,4 @@ app.post('/', (req, res) => {
 app.listen(port, () => {
   console.log(`\nListening on port ${port}\n`);
 });
+*/
