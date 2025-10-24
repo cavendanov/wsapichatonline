@@ -1,11 +1,24 @@
 const express = require("express");
 const app = express();
+app.use(express.json());
+
+app.get("/", (req, res) => res.send("Hello word"));
+
+// Start the server
+app.listen(port, () => {
+  console.log(`\nListening on port ${port}\n`);
+});
+
+//Original
+/*const express = require("express");
+const app = express();
 
 app.get("/", (req, res) => res.send("Hello word"));
 
 app.listen(3000);
-console.log("Server on port 3000");
+console.log("Server on port 3000");*/
 
+//Facbeook API
 /*const express = require("express");
 const app = express();
 app.use(express.json());
