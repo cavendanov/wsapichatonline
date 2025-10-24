@@ -3,13 +3,14 @@ const app = express();
 app.use(express.json());
 const port = process.env.PORT || 3000;
 
-app.get("/", (req, res) => res.send("Prueba de POST 1"));
+app.get("/", (req, res) => res.send("Prueba de POST 2"));
 
 // Route for POST requests
 app.post('/', (req, res) => {
   const timestamp = new Date().toISOString().replace('T', ' ').slice(0, 19);
   console.log(`\n\nWebhook received ${timestamp}\n`);
   console.log(JSON.stringify(req.body, null, 2));
+  res.send(JSON.stringify(req.body, null, 2));
   res.status(200).end();
 });
 
