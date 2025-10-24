@@ -3,7 +3,17 @@ const app = express();
 app.use(express.json());
 const port = process.env.PORT || 3000;
 
-app.get("/", (req, res) => res.send("Prueba de POST 2"));
+//app.get("/", (req, res) => res.send("Prueba de POST 2"));
+app.get('/', (req, res) => {
+  const { 'hub.mode': mode, 'hub.challenge': challenge, 'hub.verify_token': token } = req.query;
+  res.send("Prueba de GET 1");
+  //if (mode === 'subscribe' && token === verifyToken) {
+    console.log('WEBHOOK VERIFIED');
+    res.status(200).send(challenge);
+  //} else {
+    res.status(403).end();
+  //}
+});
 
 // Route for POST requests
 app.post('/', (req, res) => {
